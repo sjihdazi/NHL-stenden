@@ -1,19 +1,31 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Find the mistakes</title>
+    <meta charset="utf-8">
+    <title>Opdracht</title>
 </head>
 <body>
+
+<form action="" method="post">
+    <p><b>Add 12 zodiac signs in random order</b></p>
+    <textarea rows=5 cols=50 name="signs">Cancer,Scorpio,Sagittarius,Capricorn,Libra,Virgo,Leo,Aquarius,Pisces,Aries,Taurus,Gemini
+    </textarea>
+    <br>
+    <input type="submit" name="submit"/>
+</form>
+
 <?php
-/*
-Sjihdazi Hellingman
-04-09-2018
-*/
-echo "<h1>Califoria Occuptional Guide</h1>";
-echo "<h2>Locksmiths</h2>";
-echo "<p>A locksmith installs, services, and repairs various
-types of locks and … .</p>";
+
+if(isset($_POST["submit"])){
+    $signs = explode(",",$_POST["signs"]);
+    sort($signs);
+
+    echo "<p>You entered</p>";
+    foreach ($signs as $sign){
+        echo $sign."<br>";
+    }
+}
 ?>
+
 </body>
 </html>
