@@ -17,9 +17,8 @@
 	);
 
 	foreach ($boxes as $box => $volume) {
-		echo "<p>Doos ".$box." afmeting lengte: ".$volume['length']."cm breedtte: ".$volume['width']."cm hoogte: ".$volume['heigth']."cm</p>";
+		echo "<p>Doos ".$box." afmeting lengte: ".$volume['length']."cm breedtte: ".$volume['width']."cm hoogte: ".$volume['heigth']."cm. Het volume is: ".$volume['length']*$volume['width']*$volume['heigth']."cm3.</p>";
 	}
 ?>
-
 </body>
 </html>

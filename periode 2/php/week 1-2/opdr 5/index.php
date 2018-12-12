@@ -18,12 +18,11 @@
         "010-virgo.png" => "Virgo",
         "011-aquarius.png" => "Aquarius",
         "012-cancer.png" => "Cancer");
-        ?>
+    ?>
 
-        <?php foreach ($signs as $file => $name): ?>
-            <a href="zodiac/<?=$file?>"><img width=64 height=64 src="zodiac/<?=$file?>" alt="<?=$name?>"></a>
-            <?=$name?><br>
-        <?php endforeach; ?>
-
-    </body>
-    </html>
+    <?php foreach ($signs as $file => $name): ?>
+        <a href="zodiac/<?=$file?>"><img width=64 height=64 src="zodiac/<?=$file?>" alt="<?=$name?>"></a>
+        <?=$name?><br>
+    <?php endforeach; ?>
+</body>
+</html>
