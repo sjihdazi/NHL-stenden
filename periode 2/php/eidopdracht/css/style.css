@@ -13,11 +13,11 @@ main {
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: right;
-	height: 600px;
+	height: 700px;
 }
 
 #loginSection{
-	margin-top: 150px;
+	margin-top: 240px;
 }
 
 .loginBtn{
