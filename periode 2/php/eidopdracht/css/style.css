@@ -1,0 +1,26 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+#bird{
+	background-image: url(../images/bird2.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right;
+	height: 600px;
+}
+
+#loginSection{
+	margin-top: 150px;
+}
+
+.loginBtn{
+	width: 400px;
+	margin-top: 15px;
+}
