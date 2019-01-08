@@ -15,12 +15,13 @@
 		$frequency = htmlentities($_POST["frequency"]);
 		$solution = htmlentities($_POST["solution"]);
 
-		$sql = "UPDATE ". $TableName ." SET product_name='$product_name', version='$version', hardware='$hardware', os='$os', frequency='$frequency', solution='$solution' WHERE ID='" . $ID . "'";
-
-		if (mysqli_query($conn, $sql)) {
+		if ($stmt = $conn->prepare("UPDATE ". $TableName ." SET product_name=?, version=?, hardware=?, os=?, frequency=?, solution=? WHERE ID=?")) {
+			$stmt->bind_param("sssssss", $product_name , $version , $hardware , $os , $frequency , $solution , $ID);
+			$stmt->execute();
 			echo "Record updated succesfully.";
-			echo "<a href='index.php'>home</a>";
-		} else {
+			echo "<br><a href='index.php'>home</a>";
+		}
+		else {
 			echo "Error: " . $sql . "<br />" . mysqli_error($conn);
 		}
 

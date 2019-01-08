@@ -18,6 +18,7 @@ require('config.php');
 		$result = mysqli_query($conn, $bug);
 		$row = mysqli_fetch_assoc($result);
 	}
+
 ?>
 <html>
 	<head>
