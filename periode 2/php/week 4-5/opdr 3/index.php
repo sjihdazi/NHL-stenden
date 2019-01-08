@@ -35,7 +35,7 @@ require('config.php');
 				<td>" . $row["os"] . "</td>
 				<td>" . $row["frequency"] . "</td>
 				<td>" . $row["solution"] . "</td>
-				<td><a href='UpdateBugReport.php?id=" . $row["ID"] . "&product_name=" . $row["product_name"] . "&version=" . $row["version"] . "&hardware=" . $row["hardware"] . "&os=" . $row["os"] . "&frequency=" . $row["frequency"] . "&solution=" . $row["solution"] . "'>Update</a></td>";
+				<td><a href='UpdateBugReport.php?id=".$row["ID"]."'>Update</a></td>";
 				echo "</tr>";
 			}
 			echo "</table>";
