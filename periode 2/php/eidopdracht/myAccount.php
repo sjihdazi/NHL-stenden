@@ -1,8 +1,8 @@
 <?php
   include "db.php";
 
-  include 'includes/signUpHeader.php';
+  include 'includes/header.php';
   include 'includes/navbar.php';
-  include 'includes/signUp_content.php';
+  include 'includes/myAccount_content.php';
   include 'includes/footer.php';
 ?>
