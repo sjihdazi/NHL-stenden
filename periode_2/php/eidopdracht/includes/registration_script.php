@@ -1,7 +1,7 @@
 <?php
 // Define variables and initialize with empty values
-$username = $password = $email = $imagePath = $confirm_password = $image_err ="";
-$username_err = $password_err = $confirm_password_err = "";
+$username = $password = $email = $imagePath = $confirm_password = "";
+$image_err = $username_err = $password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         // Check file size
         if ($_FILES["fileToUpload"]["size"] > 900000) {
-            echo "Sorry, your file is too large.";
+            $image_err = "Sorry, your file is too large.";
             $uploadOk = 0;
         }
         // Allow certain file formats
@@ -103,7 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $imagepath = $target_dir.basename( $_FILES["fileToUpload"]["name"]);
 
             } else {
-                $image_err ="Pick a profile picture please";
+                $image_err ="there went something wrong";
             }
         }
     
@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_password = password_hash($password, PASSWORD_DEFAULT)."\n"; // Creates a password hash
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){

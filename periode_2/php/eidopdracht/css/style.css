@@ -91,3 +91,11 @@ main {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.mssg_container{
+  background-color: white;
+}
+
+#userImg{
+  height: 120px;
+}

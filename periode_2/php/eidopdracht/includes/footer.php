@@ -24,4 +24,7 @@
 	$("#fileToUpload").change(function() {
 	    readURL(this);
 	});
+
+    $('#message').val('New Text');
+    M.textareaAutoResize($('#message'));
 </script>
