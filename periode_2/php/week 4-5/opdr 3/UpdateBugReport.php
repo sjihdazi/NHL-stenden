@@ -18,7 +18,6 @@ require('config.php');
 		$result = mysqli_query($conn, $bug);
 		$row = mysqli_fetch_assoc($result);
 	}
-
 ?>
 <html>
 	<head>
@@ -35,7 +34,6 @@ require('config.php');
 			<input type="text" name="solution" placeholder="Solution" value="<?php echo $row['solution']; ?>" />
 			<input type="submit" name="submit" value="Submit" />
 		</form>
-
 		<p><a href="index.php">Back to home</a></p>
 	</body>
 </html>
