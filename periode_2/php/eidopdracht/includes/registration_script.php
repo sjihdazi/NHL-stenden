@@ -68,17 +68,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $target_dir = "images/avatars/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $imageFileType = strtolower($target_file);
+
+
     //checking for actual file
     // Check if image file is a actual image or fake image
 
         if(!empty($_POST["fileToUpload"])) {
-        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-            if($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
+            $allowed_types = array ( 'image/jpeg', 'image/png', 'image/jpg', 'image/gif' );
+            $fileInfo = finfo_open(FILEINFO_MIME_TYPE);
+            $detected_type = finfo_file( $fileInfo, $_FILES['fileToUpload']['name'] );
+            if ( !in_array($detected_type, $allowed_types) ) {
                 $uploadOk = 0;
             }
         }
@@ -90,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif" && !empty($_POST["fileToUpload"])) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $image_err ="there went something wrong";
             $uploadOk = 0;
         }
         // Check if $uploadOk is set to 0 by an error
@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT)."\n"; // Creates a password hash
+            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
