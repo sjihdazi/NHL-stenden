@@ -17,7 +17,7 @@
 			$bus_place = $_POST[$bus_value];
 		}
 
-		if (condition) {
+		if ($auto_place > ($bus_place * 8) || ) {
 			# code...
 		}
 
@@ -30,6 +30,7 @@
 	}
 
 	function getMax(){
+
 
 	}
 
